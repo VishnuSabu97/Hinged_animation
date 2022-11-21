@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-// @dart=2.9
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,45 +10,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-List<StaggeredTile> _cardTile = <StaggeredTile>[
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-];
-List<Widget> _listTile = <Widget>[
-  BackgroundTile(backgroundColor: Colors.blueAccent, iconData: Icons.add),
-  BackgroundTile(
-      backgroundColor: Colors.red, iconData: Icons.g_translate_sharp),
-  BackgroundTile(
-      backgroundColor: Colors.blueAccent, iconData: Icons.photo_library),
-  BackgroundTile(backgroundColor: Colors.red, iconData: Icons.account_circle),
-  BackgroundTile(
-      backgroundColor: Colors.blueAccent, iconData: Icons.reddit_outlined),
-  BackgroundTile(backgroundColor: Colors.red, iconData: Icons.safety_check),
-  BackgroundTile(
-      backgroundColor: Colors.blueAccent, iconData: Icons.pages_outlined),
-  BackgroundTile(backgroundColor: Colors.red, iconData: Icons.radar_rounded),
-  BackgroundTile(backgroundColor: Colors.blueAccent, iconData: Icons.cached),
-  BackgroundTile(backgroundColor: Colors.red, iconData: Icons.hail),
-];
-
 class BackgroundTile extends StatelessWidget {
   final Color backgroundColor;
   final IconData iconData;
-
   BackgroundTile({
     required this.backgroundColor,
     required this.iconData,
   });
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -58,7 +25,6 @@ class BackgroundTile extends StatelessWidget {
     );
   }
 }
-
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -75,12 +41,71 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: StaggeredGridView.count(
+        child: StaggeredGrid.count(
           crossAxisCount: 4,
-          staggeredTiles: _cardTile,
-          children: _listTile,
           crossAxisSpacing: 4.0,
           mainAxisSpacing: 4.0,
+          children: [
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 2,
+              child: BackgroundTile(
+                  backgroundColor: Colors.blueAccent, iconData: Icons.add),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 1,
+              child: BackgroundTile(
+                  backgroundColor: Colors.red, iconData: Icons.photo_library),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 2,
+              child: BackgroundTile(
+                  backgroundColor: Colors.blueAccent,iconData: Icons.account_circle),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 1,
+              child: BackgroundTile(
+                  backgroundColor: Colors.red, iconData: Icons.safety_check),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 2,
+              child: BackgroundTile(
+                  backgroundColor: Colors.blueAccent, iconData: Icons.pages_outlined),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 1,
+              child: BackgroundTile(backgroundColor: Colors.red, iconData: Icons.ac_unit),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 2,
+              child: BackgroundTile(
+                  backgroundColor: Colors.blueAccent, iconData: Icons.access_time),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 1,
+              child: BackgroundTile(
+                  backgroundColor: Colors.red, iconData: Icons.fmd_good_rounded),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 2,
+              child: BackgroundTile(
+                  backgroundColor: Colors.blueAccent, iconData: Icons.hail),
+            ),
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: 1,
+              child: BackgroundTile(
+                  backgroundColor: Colors.red, iconData: Icons.table_bar),
+            ),
+          ],
         ),
       ),
     );
