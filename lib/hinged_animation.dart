@@ -46,7 +46,7 @@ class _HingedAnimationState extends State<HingedAnimation>
       CurvedAnimation(
         parent: animationController,
         curve: Interval(
-          0.5,
+          0.6,
           1.0,
           curve: Curves.fastOutSlowIn,
         ),
